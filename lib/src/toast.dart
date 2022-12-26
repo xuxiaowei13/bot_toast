@@ -530,25 +530,27 @@ class BotToast {
   ///[allowClick] 请看[showEnhancedWidget.allowClick]
   ///[onClose] 请看[showEnhancedWidget.onClose]
   ///[enableKeyboardSafeArea] 请看[showEnhancedWidget.enableKeyboardSafeArea]
-  static CancelFunc showAttachedWidget(
-      {required ToastBuilder attachedBuilder,
-      WrapAnimation? wrapAnimation,
-      WrapAnimation? wrapToastAnimation = attachedAnimation,
-      BuildContext? targetContext,
-      Offset? target,
-      Color backgroundColor = Colors.transparent,
-      double verticalOffset = 0.0,
-      double horizontalOffset = 0.0,
-      Duration? duration,
-      Duration? animationDuration,
-      Duration? animationReverseDuration,
-      PreferDirection? preferDirection,
-      VoidCallback? onClose,
-      bool ignoreContentClick = false,
-      bool onlyOne = false,
-      bool allowClick = true,
-      bool enableKeyboardSafeArea = true,
-      bool enableSafeArea = true}) {
+  static CancelFunc showAttachedWidget({
+    required ToastBuilder attachedBuilder,
+    WrapAnimation? wrapAnimation,
+    WrapAnimation? wrapToastAnimation = attachedAnimation,
+    BuildContext? targetContext,
+    Offset? target,
+    Color backgroundColor = Colors.transparent,
+    double verticalOffset = 0.0,
+    double horizontalOffset = 0.0,
+    Duration? duration,
+    Duration? animationDuration,
+    Duration? animationReverseDuration,
+    PreferDirection? preferDirection,
+    VoidCallback? onClose,
+    bool ignoreContentClick = false,
+    bool onlyOne = false,
+    bool allowClick = true,
+    bool enableKeyboardSafeArea = true,
+    bool enableSafeArea = true,
+    bool crossPage = true,
+  }) {
     assert(verticalOffset >= 0.0, 'must be a positive number');
     assert(horizontalOffset >= 0.0, 'must be a positive number');
     assert(!(targetContext != null && target != null),
@@ -574,7 +576,7 @@ class BotToast {
         allowClick: allowClick,
         clickClose: true,
         groupKey: attachedKey,
-        crossPage: false,
+        crossPage: crossPage,
         onlyOne: onlyOne,
         onClose: onClose,
         enableKeyboardSafeArea: enableKeyboardSafeArea,
